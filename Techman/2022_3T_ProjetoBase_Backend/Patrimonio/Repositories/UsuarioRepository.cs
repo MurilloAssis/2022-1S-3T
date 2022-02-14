@@ -25,7 +25,7 @@ namespace Patrimonio.Repositories
 
             if (usuario != null)
             {
-                if (usuario.Senha.Length != 32 && usuario.Senha[0].ToString() != "$")
+                if (usuario.Senha.Length != 60 && usuario.Senha[0].ToString() != "$")
                 {
                     string senhaHash = Criptografia.gerarHash(senha);
                     usuario.Senha = senhaHash;

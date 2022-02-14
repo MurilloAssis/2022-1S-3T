@@ -30,9 +30,9 @@ namespace Patrimonio.Controllers
     {
         private readonly IUsuarioRepository _usuarioRepository;
 
-        public LoginController(IUsuarioRepository contexto)
+        public LoginController(IUsuarioRepository repo)
         {
-            _usuarioRepository = contexto;
+            _usuarioRepository = repo;
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Patrimonio.Controllers
 
                 if (usuarioBuscado == null)
                 {
-                    return StatusCode(401, "E-mail ou senha inválidos!");
+                    return Unauthorized(new { msg = "E-mail ou senha inválidos!" });
                 }
 
                 // Caso o usuário seja encontrado, prossegue para a criação do token

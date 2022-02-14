@@ -40,7 +40,7 @@ export const Patrimonio = () => {
 
       axios({
         method: "post",
-        url: "http://localhost:5000/api/Equipamentos",
+        url: "https://620549eb161670001741b78d.mockapi.io/equipamentos",
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       })
@@ -55,7 +55,7 @@ export const Patrimonio = () => {
     }
 
     const Listar = () => {
-      axios.get('http://localhost:5000/api/Equipamentos')
+      axios.get('https://620549eb161670001741b78d.mockapi.io/equipamentos')
       .then(resposta => {
         setProdutos(resposta.data);
       })
@@ -63,7 +63,7 @@ export const Patrimonio = () => {
     }
 
     const Remover = (id) => {
-      axios.delete('http://localhost:5000/api/Equipamentos/'+id)
+      axios.delete('https://620549eb161670001741b78d.mockapi.io/equipamentos/'+id)
       .then(() => {
         Listar();
       })
@@ -146,7 +146,7 @@ export const Patrimonio = () => {
 
             {produtos.map(item => 
               <div className="card" key={item.id}>
-                <img src={"http://localhost:5000/StaticFiles/Images/"+item.imagem} alt="" />
+                <img src={item.imagem} alt="" />
                 <div>
                   <h4>{item.nomePatrimonio}</h4>
                   <span>Patrimônio: {item.descricao}</span>
