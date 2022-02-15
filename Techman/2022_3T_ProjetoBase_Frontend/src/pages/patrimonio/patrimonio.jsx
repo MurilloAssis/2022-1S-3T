@@ -40,7 +40,7 @@ export const Patrimonio = () => {
 
       axios({
         method: "post",
-        url: "https://620549eb161670001741b78d.mockapi.io/equipamentos",
+        url: "http://localhost:5000/api/equipamentos",
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       })
@@ -55,7 +55,7 @@ export const Patrimonio = () => {
     }
 
     const Listar = () => {
-      axios.get('https://620549eb161670001741b78d.mockapi.io/equipamentos')
+      axios.get('http://localhost:5000/api/equipamentos')
       .then(resposta => {
         setProdutos(resposta.data);
       })
@@ -63,7 +63,7 @@ export const Patrimonio = () => {
     }
 
     const Remover = (id) => {
-      axios.delete('https://620549eb161670001741b78d.mockapi.io/equipamentos/'+id)
+      axios.delete('http://localhost:5000/api/equipamentos/'+id)
       .then(() => {
         Listar();
       })
@@ -112,7 +112,7 @@ export const Patrimonio = () => {
                 className="input__login" 
                 type="text" 
                 name="nomePatrimonio" 
-                id="nomePatrimonio" 
+                id="codigoPatrimonio" 
                 placeholder="Código do Patrimonio"
                 value={descricao}
                 onChange={(e) => setDescricao(e.target.value)}
